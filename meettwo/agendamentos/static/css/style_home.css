@@ -1,0 +1,145 @@
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    content: 0;
+}
+
+/* ==================== BODY ==================== */
+body{
+    background-image: url("../foto/home_meet_cortado.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    font-family: 'quick', 'Times New Roman', Times, serif;
+    color: #fff;
+}
+
+
+/* ==================== NAVBAR ==================== */
+/*o css da barra de navegação esta no css base para todas as paginas*/
+/* header {
+  width: 100%;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-bottom: 20px;
+  backdrop-filter: blur(1px);
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+nav#barra_de_navegacao {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+
+
+}
+
+nav#barra_de_navegacao button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 24px;
+}
+
+nav#barra_de_navegacao button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+div#login button{
+  margin-left: 30px;
+  margin-right: 15px;
+  height: 50px;
+  border: solid;
+} */
+
+/* ==================== MAIN CONTENT ==================== */
+main{
+  display:flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: baseline;
+  align-items: center;
+}
+
+
+div#conteudo-1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  width: 30vw;
+  height: 50vh;
+
+}
+
+div#conteudo-1 p{
+  max-width: auto;
+  max-height: auto;
+  padding: 20px 25px;
+  border-radius: 12px;
+  line-height: 1.5;
+  font-size: 45px;
+  margin-bottom: 25px;
+
+  word-break: keep-all;
+  color: #794f03;
+
+
+  /*coloquei sombra pra dar um destaque */
+  /* text-shadow: 2px 2px 4px black; */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+
+  /*nesse exemplo sublinhamos o texto usando sombra para dar contraste*/
+  /* text-shadow:               
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black; */
+
+  /*outra opção para contornar o texto*/
+  -webkit-text-stroke: 1px rgb(87, 50, 8);
+}
+
+div#conteudo-1 button {
+  background: #db9e73;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+
+}
+
+div#conteudo-1 button:hover {
+  background: #b85c19;
+  transform: scale(1.07);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* ==================== FOOTER (opcional) ==================== */
+footer {
+  height: 60px;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}

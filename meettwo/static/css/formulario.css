@@ -1,0 +1,91 @@
+
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    content: 0;
+}
+
+@font-face {
+    font-family: 'quick';
+    /* src: url("../../../static/fontes/Quicksand-SemiBold.ttf") format('truetype'); */
+    src: url('../fontes/Quicksand-SemiBold.ttf') format('truetype');
+}
+
+body{
+    background-image: url("/../static/foto/fundomeet2.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;   /* alinha no eixo principal (horizontal) */
+    align-items: center;       /* alinha no eixo cruzado (vertical) */
+    
+    height: 100vh; /*100vh (viewport height), que representa 100% da altura visível da tela*/
+    font-family: 'quick','Times New Roman', Times, serif ;
+}
+
+main#corpo_pagina{
+    width: 400px;
+    height: auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form#formulario{
+    width: 300px;
+    height: auto;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15); /* transparência suave */
+    backdrop-filter: blur(8px); /* efeito de vidro */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+form#formulario input{
+    height: 35px;
+    border-radius: 6px;
+    border: none;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+form#formulario button{
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #d2691e; /* chocolate */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 20px rgba(68, 66, 66, 0.3);
+}
+form#formulario label{
+    color: #666363; 
+}
+
+form#formulario a{
+    margin-bottom: 20px;
+}
+

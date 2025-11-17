@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} login {% endblock %}
+
+{% block label_imput %}
+
+    <label>nome:</label>
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <p  class="{{message.tag}}" style="color:rgb(122, 2, 2);">{{message}}</p>    
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <input type="text" name="nome">
+    <label>senha:</label>
+    <input type="password" name="senha">
+
+{% endblock %}
+
+{% block link %}
+    <a href="#">entrar como convidado</a>
+{% endblock %}

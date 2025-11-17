@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} cadastro {% endblock %}
+{% block label_imput %}
+
+
+            <label>telefone:</label>
+                {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <p class="{{message.tag}}" style="color:rgb(122, 2, 2);">{{message}}</p>
+                {% endfor %}
+                </ul>  
+                {% endif %}
+            <input type="tel" placeholder="(21) 9999-9999" name="telefone">
+        
+
+            <label>nome:</label> 
+                {% if messages %}
+                <ul>                     
+                {% for message in messages %}
+                    <p class="{{message.tag}}" style="color:rgb(122, 2, 2);">{{message}}</p>  
+                {% endfor %}
+                </ul>
+                {% endif %}
+            <input type="text" name="nome">
+        
+    
+        
+            <label>senha:</label>      
+                {% if messages %}          
+                <ul>
+                {% for message in messages %}
+                    <p class="{{message.tag}}" style="color:rgb(122, 2, 2);">{{message}}</p>        
+                {% endfor %}
+                </ul>
+                {% endif %}
+            <input type="password" name="senha">
+            
+        
+    
+
+{% endblock %}
+
+{% block link %}
+    <a href="#">voltar para login</a>
+{% endblock %}
+
+
