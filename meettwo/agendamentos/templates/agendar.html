@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+    
+
+
+{% block title%} agendar {% endblock %}
+
+{% block imagemFundo %} 
+
+    style='background-image: url("/../static/foto/meetfundo.png"); '
+
+{% endblock %}
+
+{% block label_imput %}
+    <script src="{% static 'js/agendar.js'%}"></script>
+
+    <label> cliente: </label>
+    <input type="text" name="cliente" >
+
+    <label >serviço:</label> <!-- emplementar java script-->
+    <select name="servicos_opçoes" id="" >
+        
+         <option value="" selected hidden>Selecione um serviço</option>
+        {% for servico in servico_opc %}
+        <option value="{{ servico.id }}">{{ servico.servico_nome }}</option>
+        {% endfor %}        
+        
+    </select>
+    
+    <label > data: </label> <!-- emplementar java script-->
+    <input id="dataHora" type="text" placeholder="Selecionar data e hora" name="data" >
+
+{% endblock %}
+
+
+{% block link %}
+<!--vazio-->
+{% endblock %}
+

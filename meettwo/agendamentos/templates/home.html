@@ -13,12 +13,17 @@
 <body>
     <header>
         <nav id="barra_de_navegacao">
-            <button>agendar</button>
+            <a href="{% url 'agendar_form'%}"><button>agendar</button></a>
             <button>desmarcar</button>
+            <button>ajustar-horario</button>
             <button>reuniões</button>
-            <button>serviços</button>
+            <a href="{%url 'servico_adm' %}"> <button>serviços</button> </a>
             <div id="login">
-                <button><i>login</i></button>
+                {% if user.is_authenticated %}
+                    <a href="#"><button><i>log-out</i></button></a>
+                {% else %}
+                    <a href="{%url 'login'%}"><button>login</button></a>
+                {% endif %}
             </div>
         </nav>
     </header>
