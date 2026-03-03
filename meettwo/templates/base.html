@@ -40,8 +40,11 @@
         <label>exemple:</label>
         <input type="password">
         {% endblock %}
-        <button type="submit" >submit</button>
-        
+
+        {% block botao %}
+        <button type="submit" id="botao_form" >submit</button>
+        {% endblock %}
+
         {% block link %}
         <a href="#"> coloque um link </a>
         {% endblock %}

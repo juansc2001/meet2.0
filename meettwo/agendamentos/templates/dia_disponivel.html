@@ -1,0 +1,40 @@
+{% extends 'base_home.html' %}
+{% load static %}
+
+{block title} dia disponivel {endblock}
+
+
+{% block content%}
+    <h1 style=" color: black;">pagina nao esta pronta</h1>
+    <div 
+    style= 
+    "width: 300px;
+    height: auto;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.15); /* transparência suave */
+    backdrop-filter: blur(8px); /* efeito de vidro */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);">
+
+    <form style = "font-size: 30px; color: black; display: flex; flex-direction: column;">
+        <label> dias que nao esta trabalhando </label>
+        <input type="date" style="height: 40px;">
+
+        <label for="">dias que trabalhara em um horario especifico</label>
+        <input type="datetime" style="height: 40px;">
+
+        <label for="">horario que vc nao trabalha</label>
+        <input type="time" style="height: 40px;">
+    </form>
+    </div>
+    
+{% endblock %}
