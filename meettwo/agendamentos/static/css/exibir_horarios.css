@@ -1,0 +1,171 @@
+
+/* =========================
+   CONTAINER PRINCIPAL
+========================= */
+
+#container-tabela {
+    width: 90%;
+    max-width: 1200px;
+    margin: 120px auto 40px auto; /* espaço por causa da navbar fixa */
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    color: rgb(29, 29, 29);
+}
+/**/
+/* =========================
+   HEADER DA TABELA
+========================= */
+
+#header-tabela {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#header-tabela h2 {
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   BOTÃO FILTRO
+========================= */
+
+#btn-filtro {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.445);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+#btn-filtro:hover {
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.05);
+}
+
+/* Dropdown */
+
+#opcoes-filtro {
+    display: none;
+    position: absolute;
+    margin-top: 10px;
+    right: 0;
+
+    background: rgba(0,0,0,0.8);
+    border-radius: 10px;
+    padding: 10px;
+    backdrop-filter: blur(8px);
+}
+
+#opcoes-filtro button {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 8px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+#opcoes-filtro button:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* =========================
+   TABELA
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: rgba(255,255,255,0.2);
+}
+
+thead th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+tbody tr {
+    transition: 0.3s;
+}
+
+tbody tr:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* animação da pagina */
+.linha-animada {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 0.9s ease forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 768px) {
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.1);
+    }
+
+    td {
+        border: none;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #ddd;
+    }
+}

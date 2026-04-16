@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from . models import tipos_de_servicos, dias_inoperante, horario_de_funcionamento, horarios_agendados
 import json
+from django.http import JsonResponse#classe pronta no django para retornar json pro navegador
 import datetime
 from django.utils import timezone
 from zoneinfo import ZoneInfo
@@ -130,8 +131,9 @@ def agendar(request):
                         Horario_data_agendado_user_dt_aware = timezone.make_aware(Horario_data_agendado_user, ZoneInfo("America/Sao_Paulo"))
                         horario_agendado_final_user_dt_aware = timezone.make_aware(horario_agendado_final_user, ZoneInfo("America/Sao_Paulo"))
 
-
                         conflito = True
+                        if len(horarios_marcados) == 0:
+                            conflito = False
                         for agendado in horarios_marcados:
                             #Preferi converter para naive, pois o formato aware estava causando conflitos. Não achei ideal desativar o fuso horário de toda a aplicação apenas para evitar que os horários viessem como datetime aware do banco de dados.
                             horario_agendado_inicial_naive = agendado.horario_agendado_inicial.replace(tzinfo=None)
@@ -146,9 +148,8 @@ def agendar(request):
                                 conflito = False
                         
 
-
-
-
+                        usuario_agendou_salva = agendamento['horario_timezone']
+                        usuario_agendou_salva_fim = agendamento['horario_timezone'] + tempo_duracao_servico
                         #essa parte é responsavel por agendar o horario
                         if(conflito == False):
                             salvando_dados = horarios_agendados(
@@ -161,37 +162,10 @@ def agendar(request):
 
 
 
-
-
-
-
             else:
                 print('este horario nao funcionamos')
                 return redirect('agendar_form')
 
-
-
-
-
-                
-                
-
-
-        
-
-
-
-
-        #verifica se outro cliente ja esta agendado para esse horario 
-
-        #salvar os dados no banco de dados
-
-
-
-
-
-
-         
 
 
         return redirect('agendar_form')
@@ -203,3 +177,30 @@ def agendar(request):
 def dia_disponivel(request):
     if request.method == 'GET':
         return render(request, 'dia_disponivel.html' )
+
+
+
+
+
+
+
+def exibir_horarios(request):
+
+    return render(request, 'exibir_horarios.html')
+
+
+
+def API_exibir_horarios(request):
+    #API que manda um json dos dados agendados pro frontend
+    dados = horarios_agendados.objects.all()
+    lista_agendados = []
+    for dado in dados:
+        agenda = {
+            'nome': dado.cliente,
+            'horario': dado.horario_agendado_inicial,
+            'servico': dado.servico,
+            #seria interesante ter o numero de telefone do usuario
+        }
+        lista_agendados.append(agenda)
+    return JsonResponse(lista_agendados, safe=False)
+    

@@ -1,0 +1,93 @@
+{% extends 'base_home.html'%}
+{% load static %}
+
+
+
+
+{% block title %} Reuniões {% endblock %}
+.
+{% block imagemFundo %}
+style='background-image: url("/../static/foto/meetfundo.png"); background-size: cover; background-position: center;'
+{% endblock %}
+
+{% block link%} 
+
+<link rel="stylesheet" href="{% static 'css/exibir_horarios.css' %}"> 
+
+{% endblock%}
+
+{% block content %}
+
+
+
+<div id="container-tabela">
+
+    <div id="header-tabela">
+        <h2>Lista de Reuniões</h2>
+
+        <div style="position: relative;">
+            <button id="btn-filtro">Filtrar ▾</button>
+
+            <input 
+            type="text" 
+            id="busca-nome" 
+            placeholder="Buscar por nome..."
+            style="margin-bottom: 10px; padding: 5px;"
+            >
+
+            <div id="opcoes-filtro">
+                <button>Por Nome</button>
+                <button>Por Dia da Semana</button>
+                <button>Dia Mais Próximo</button>
+                <button>Ordem de Adição</button>
+            </div>
+        </div>
+    </div>
+
+    <table id="tabela-reunioes">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Serviço</th>
+                <th>Dia da Semana</th>
+                <th>Data</th>
+                <th>Hora</th>
+            </tr>
+        </thead>
+
+        <tbody id = 'tabela'>
+
+            <!-- Exemplos visuais -->
+
+            <tr>
+                <td data-label="Nome">Carlos Silva</td>
+                <td data-label="Serviço">Consultoria</td>
+                <td data-label="Dia da Semana">Segunda-feira</td>
+                <td data-label="Data">10/03/2026</td>
+                <td data-label="Hora">14:00</td>
+            </tr>
+
+            <tr>
+                <td data-label="Nome">Ana Souza</td>
+                <td data-label="Serviço">Mentoria</td>
+                <td data-label="Dia da Semana">Quarta-feira</td>
+                <td data-label="Data">12/03/2026</td>
+                <td data-label="Hora">09:30</td>
+            </tr>
+
+            <tr>
+                <td data-label="Nome">Marcos Lima</td>
+                <td data-label="Serviço">Reunião Técnica</td>
+                <td data-label="Dia da Semana">Sexta-feira</td>
+                <td data-label="Data">14/03/2026</td>
+                <td data-label="Hora">16:00</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<script src=" {%static 'js/exibir_horarios.js'%}"></script>
+
+{% endblock %}

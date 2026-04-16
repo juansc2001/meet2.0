@@ -15,6 +15,7 @@ class horarios_agendados(models.Model):
     horario_agendado_inicial = models.DateTimeField()
     horario_agendado_final = models.DateTimeField()
     servico = models.TextField( max_length= 30)
+    #seria interesante ter o numero de telefone do usuario
 
 
 
