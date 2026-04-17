@@ -48,6 +48,7 @@ def servicos(request):
         return render(request, 'servicos.html')
     
 
+@login_required(login_url='/login/')
 def agendar(request):
     if request.method == "GET":
         opcoes_servico = tipos_de_servicos.objects.all()
@@ -174,6 +175,8 @@ def agendar(request):
 
 
 
+
+
 def dia_disponivel(request):
     if request.method == 'GET':
         return render(request, 'dia_disponivel.html' )
@@ -184,8 +187,8 @@ def dia_disponivel(request):
 
 
 
+@login_required(login_url='/login/')
 def exibir_horarios(request):
-
     return render(request, 'exibir_horarios.html')
 
 
