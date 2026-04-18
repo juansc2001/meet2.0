@@ -143,3 +143,17 @@ footer {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
 }
+
+
+@media(max-width: 700px){
+  
+  main{
+    background-image: url("../foto/home_meettwo_mobile.png")  ;
+    background-size: cover;
+    justify-content: center;
+    margin-top: 17%;
+  }
+  div#conteudo-1 p{
+    color: #fab689;
+  }
+}

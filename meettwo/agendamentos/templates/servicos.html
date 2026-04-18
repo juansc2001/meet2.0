@@ -4,6 +4,15 @@
 {% block title %} servico {% endblock %}
 
 {% block label_imput %}
+    <style>
+    @media (max-width: 700px){
+        body{
+            background-image: url("../static/foto/fundomeet_mobile.png")  ;
+            background-size: cover;
+        }
+    }
+    </style>
+    
     <label>serviço:</label>
     <input type="text" name="servico">
     <label>duraçao:</label>
