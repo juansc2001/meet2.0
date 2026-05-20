@@ -20,8 +20,8 @@ DEBUG = True
 #ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
 ALLOWED_HOSTS = []
 
-
-
+#The messages were actually getting stored in Cookies (CookieStorage) which is the default Django behaviour. (FallbackStorage) 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 INSTALLED_APPS = [
     'django.contrib.admin',

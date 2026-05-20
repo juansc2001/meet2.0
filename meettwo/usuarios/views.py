@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required # pra poder usar o @login_required
 from django.contrib.auth import login
 from django.contrib import messages #https://docs.djangoproject.com/en/5.2/ref/contrib/messages/
+from django.contrib.messages import constants
 
 
 

@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.messages import constants
+from django.contrib.messages import get_messages
+
 from . models import tipos_de_servicos, dias_inoperante, horario_de_funcionamento, horarios_agendados
+
 import json
 from django.http import JsonResponse#classe pronta no django para retornar json pro navegador
 import datetime
@@ -51,6 +55,15 @@ def servicos(request):
 @login_required(login_url='/login/')
 def agendar(request):
     if request.method == "GET":
+
+        #imprime menssagens caso a pagina seja redirecionada
+        messages.add_message(
+                request,
+                messages.INFO,
+                'site foi aberto'
+            )
+        
+        
         opcoes_servico = tipos_de_servicos.objects.all()
         return render(request, 'agendar.html', {'servico_opc': opcoes_servico})
     
@@ -68,9 +81,17 @@ def agendar(request):
 
         #trata os dados json do formulario e transforma em dicionario
         if(horario['horario_marcado'] == '' or informacoes['servico'] == '' or informacoes['nome'] == ''):
-            #enviar uma menssagem ao usuario, preencha todo o formulario, e reevia o formulario
-            print('algum campo esta vazio')
+
+            #grava uma menssagem para ser exibida no começo da pagina
+            print('algum campo esta vazio1')
+            messages.add_message(
+                request,
+                messages.INFO,
+                'algum campo esta vazio1'
+            )
             return redirect('agendar_form')
+        
+        
         else:
             HH = datetime.datetime.strptime(horario['horario_marcado'] , '%Y-%m-%dT%H:%M')
             HH_timezone = timezone.make_aware(HH,ZoneInfo(informacoes['timeZone']))

@@ -21,6 +21,13 @@
 {% block label_imput %}
     <script src="{% static 'js/agendar.js'%}"></script>
 
+    {% if not messages %}
+        <h1>nao há menssagens</h1>
+    {% endif %}
+    {% if messages %}
+        <h1>menssagem</h1>
+    {% endif %}
+    
     <label> cliente: </label>
     <input type="text" id="cliente">
 

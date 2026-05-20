@@ -26,6 +26,48 @@
                 {% endif %}
             </div>
         </nav>
+
+                    
+        <!-- ignora isso aqui é apenas uma notificação pronta -->   
+        {% if messages %}
+            <div style="
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #323232;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 250px;
+            z-index: 9999;
+            ">
+                <!-- Ícone -->
+                <span style="font-size: 20px;"></span>
+                <!-- Texto -->
+                <div style="flex: 1;">
+                    <strong style="display: block; font-size: 14px;"><!--tipo da menssagem--></strong>
+                    {% for message in messages%}
+                    <span style="font-size: 13px;">{{message}}!</span>
+                    {% endfor%}
+                </div>
+                <!-- Botão fechar -->
+                <span onclick="this.parentElement.style.display='none'" 
+                    style="
+                    cursor: pointer;
+                    font-weight: bold;
+                    font-size: 16px;
+                    padding-left: 10px;">
+                    ✖
+                </span>
+            </div>
+        {% endif %}
+
+
     </header>
 
     <main>
