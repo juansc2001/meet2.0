@@ -13,12 +13,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # de volta pro desenvolvimento 
-#SECRET_KEY = os.environ.get('SECRET_KEY')
-SECRET_KEY ='django-insecure-a_wdt7pt5(#88rf-iq3x_lkhaez4ex=e@w2s&r(6^a!-^0^xny'
-#DEBUG = os.environ.get('DEBUG') == 'True'
-DEBUG = True
-#ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
-ALLOWED_HOSTS = []
+SECRET_KEY = os.environ.get('SECRET_KEY')
+#SECRET_KEY ='django-insecure-a_wdt7pt5(#88rf-iq3x_lkhaez4ex=e@w2s&r(6^a!-^0^xny'
+DEBUG = os.environ.get('DEBUG') == 'True'
+#DEBUG = True
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')]
+#ALLOWED_HOSTS = []
 
 #The messages were actually getting stored in Cookies (CookieStorage) which is the default Django behaviour. (FallbackStorage) 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
