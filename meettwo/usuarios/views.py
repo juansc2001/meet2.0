@@ -27,6 +27,7 @@ def log(request):
             )
         else:
             login(request, user_logado)
+            return redirect('home')
 
 
         return render(request, 'login.html')
