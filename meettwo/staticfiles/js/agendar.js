@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         //enviando o json com fetchapi 
-        fetch("http://127.0.0.1:8000/agendar_reuniao/",{
+        fetch("/agendar_reuniao/",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
