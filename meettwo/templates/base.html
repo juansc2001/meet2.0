@@ -31,7 +31,7 @@
 
 
         <!-- ignora isso aqui é apenas uma notificação pronta -->
-        {% if  messages %}
+        {% for message in messages%}
             <div style="
             position: fixed;
             top: 20px;
@@ -53,9 +53,9 @@
                 <!-- Texto -->
                 <div style="flex: 1;">
                     <strong style="display: block; font-size: 14px;"><!--tipo da menssagem--></strong>
-                    {% for message in messages%}
+                    
                     <span style="font-size: 13px;">{{message}}!</span>
-                    {% endfor%}
+                    
                 </div>
                 <!-- Botão fechar -->
                 <span onclick="this.parentElement.style.display='none'" 
@@ -67,7 +67,7 @@
                     ✖
                 </span>
             </div>
-        {% endif %}
+        {% endfor %}
 
 
 

@@ -19,14 +19,18 @@
 
 
 {% block label_imput %}
-    <script src="{% static 'js/agendar.js'%}"></script>
+        <h1>TESTE</h1>
 
-    {% if not messages %}
-        <h1>nao há menssagens</h1>
-    {% endif %}
-    {% if messages %}
-        <h1>menssagem</h1>
-    {% endif %}
+    {{ messages }}
+
+    {% for message in messages %}
+        <h2>{{ message }}</h2>
+    {% empty %}
+        <h2>NENHUMA MENSAGEM</h2>
+    {% endfor %}
+
+<script src="{% static 'js/agendar.js'%}"></script>
+
     
     <label> cliente: </label>
     <input type="text" id="cliente">

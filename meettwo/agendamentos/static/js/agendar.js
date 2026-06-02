@@ -86,6 +86,13 @@ document.addEventListener("DOMContentLoaded", () => {
             body: form_json,
             credentials: "same-origin"
         })
+        .then(data => {
+            if (data.status === "erro") {
+                alert(data.mensagem);
+            
+            }
+            window.location.reload();
+        });
 
         console.log(`${horario_marcado}, ${name.value}, ${servico.value}`)
         console.log(form_json)

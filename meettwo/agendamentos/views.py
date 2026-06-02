@@ -12,6 +12,10 @@ import datetime
 from django.utils import timezone
 from zoneinfo import ZoneInfo
 
+
+#O urlencode() transforma um dicionário Python em parâmetros de URL.
+from urllib.parse import urlencode
+
 def home_page(request):
     return render(request, 'home.html')
 
@@ -51,18 +55,24 @@ def servicos(request):
         
         return render(request, 'servicos.html')
     
-
+#uma solução do messages que eu implementei para o fetch da pagina agendar
+def API_menssagem_agendar(request):
+     return JsonResponse({
+        'status': 'erro',
+        'mensagem': 'Preencha todos os campos'
+    })
 @login_required(login_url='/login/')
 def agendar(request):
     if request.method == "GET":
 
-        #imprime menssagens caso a pagina seja redirecionada
+        #envia a menssagem site foi aberto 
+        '''
         messages.add_message(
                 request,
                 messages.INFO,
                 'site foi aberto'
             )
-        
+        '''
         
         opcoes_servico = tipos_de_servicos.objects.all()
         return render(request, 'agendar.html', {'servico_opc': opcoes_servico})
@@ -83,12 +93,18 @@ def agendar(request):
         if(horario['horario_marcado'] == '' or informacoes['servico'] == '' or informacoes['nome'] == ''):
 
             #grava uma menssagem para ser exibida no começo da pagina
+            #nao esta funcionando
             print('algum campo esta vazio1')
             messages.add_message(
                 request,
                 messages.INFO,
-                'algum campo esta vazio1'
+                'algum campo esta vazio'
             )
+            return JsonResponse({
+            'status': 'erro',
+            'mensagem': 'Preencha todos os campos'
+            })
+            
             return redirect('agendar_form')
         
         
