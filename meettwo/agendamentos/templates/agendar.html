@@ -43,7 +43,12 @@
 {% endblock %}
 
 {% block botao %}
-    <button type="submit" id="botao_form" >submit</button>
+    <button type="button" id="botao_form" >submit</button>
+    <script>
+        document.getElementById("botao_form").addEventListener("click", function() {
+            location.reload();
+        });
+    </script>
 {% endblock %}
 
 
