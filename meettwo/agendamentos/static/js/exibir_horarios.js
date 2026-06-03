@@ -1,8 +1,10 @@
+window.alert('javascript desatualizado')
+
 const tabela = document.getElementById("tabela")
 const inputBusca = document.getElementById("busca-nome");
 
 const btnFiltro = document.getElementById("btn-filtro");
-    const opcoesFiltro = document.getElementById("opcoes-filtro");
+const opcoesFiltro = document.getElementById("opcoes-filtro");
 
     btnFiltro.addEventListener("click", () => {
         opcoesFiltro.style.display =
@@ -22,6 +24,7 @@ mypromisse_exibir_H.then((response) =>{
 })
 .then((data)=>{
     dadosGlobais = data;
+    console.log(dadosGlobais)
     renderizarTabela(data);
 })
 .catch((err)=>{
