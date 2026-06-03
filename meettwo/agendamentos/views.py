@@ -37,10 +37,20 @@ def servicos(request):
             if tempo == '':# trata os dados do formulario
                 #falta notify the user
                 print('tempo errado')
+                messages.add_message(
+                    request,
+                    messages.INFO,
+                    'campo tempo esta errado'
+                )
                 return redirect('servico_adm')
             elif len(servico) > 30 or len(servico) <= 1:
                 #falta notify the user
                 print('servico errado')
+                messages.add_message(
+                    request,
+                    messages.INFO,
+                    'campo serviço nao pode ser menor que um caracter'
+                )
                 return redirect('servico_adm')
             else:
                 form_tratado = True
@@ -140,6 +150,15 @@ def agendar(request):
                 for DT_disponiveis in dias_funciona:
                     if dt_agendado == DT_disponiveis.dia_funcionando_inteiro:
                         print('este dia nao funcionamos')
+                        messages.add_message(
+                            request,
+                            messages.INFO,
+                            'esse dia nao funcionamos'
+                        )
+                        return JsonResponse({
+                        'status': 'erro',
+                        'mensagem': 'dia indisponivel'
+                        })
                         return redirect('agendar_form')                    
                     else:
                         print("esse dia funciona")
@@ -180,6 +199,15 @@ def agendar(request):
                             if(horario_agendado_inicial_naive < horario_agendado_final_user) and (Horario_data_agendado_user < horario_agendado_final_naive):
                                 print('ja existe um agendamento feito esse horario')
                                 conflito = True
+                                messages.add_message(
+                                    request,
+                                    messages.INFO,
+                                    'ja existe um agendamento feito esse horario'
+                                )
+                                return JsonResponse({
+                                'status': 'erro',
+                                'mensagem': 'ja existe um horario agendado'
+                                })
                                 break
                             else:                                
                                 print('semconflito')
@@ -197,11 +225,33 @@ def agendar(request):
                                 servico = agendamento['servico'],
                             )
                             salvando_dados.save()
+                                
+                            messages.add_message(
+                                request,
+                                messages.INFO,
+                                'dados salvos com sucesso'
+                            )
+                            return JsonResponse({
+                            'status': 'erro',
+                            'mensagem': 'dados salvos'
+                            })
+                            
+                            
 
 
 
             else:
                 print('este horario nao funcionamos')
+
+                messages.add_message(
+                    request,
+                    messages.INFO,
+                    'este horario nao funcionamos'
+                )
+                return JsonResponse({
+                'status': 'erro',
+                'mensagem': 'horario de desligamento da empresa'
+                })
                 return redirect('agendar_form')
 
 
