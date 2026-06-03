@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log(`${horario_marcado}, ${name.value}, ${servico.value}`)
         console.log(form_json)
+        window.location.reload();
     })
 
 });
