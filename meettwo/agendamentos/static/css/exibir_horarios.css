@@ -114,6 +114,7 @@ td {
     position: absolute;
     margin-top: 10px;
     right: 0;
+    z-index: 100;
 
     background: rgba(0,0,0,0.8);
     border-radius: 10px;
