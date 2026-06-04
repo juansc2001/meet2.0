@@ -1,8 +1,12 @@
+window.alert('javascript desatualizado')
+
 const tabela = document.getElementById("tabela")
 const inputBusca = document.getElementById("busca-nome");
 
 const btnFiltro = document.getElementById("btn-filtro");
-    const opcoesFiltro = document.getElementById("opcoes-filtro");
+const opcoesFiltro = document.getElementById("opcoes-filtro");
+
+
 
     btnFiltro.addEventListener("click", () => {
         opcoesFiltro.style.display =
@@ -16,12 +20,14 @@ const btnFiltro = document.getElementById("btn-filtro");
     });
 
 
+
 mypromisse_exibir_H = fetch('/API_exibir_horarios/')//verificar a segurança
 mypromisse_exibir_H.then((response) =>{
     return response.json()
 })
 .then((data)=>{
     dadosGlobais = data;
+    console.log(dadosGlobais)
     renderizarTabela(data);
 })
 .catch((err)=>{
@@ -118,6 +124,17 @@ botoesFiltro[1].addEventListener("click", () => {
 
     renderizarTabela(ordenado);
 });
+
+//faz a busca por nome
+inputBusca.addEventListener("input", () => {
+    const valor = inputBusca.value.toLowerCase();
+
+    const filtrados = dadosGlobais.filter(item =>
+        item.nome.toLowerCase().includes(valor)
+    );
+
+    renderizarTabela(filtrados);
+});
 botoesFiltro[2].addEventListener("click", () => {
     const agora = new Date();
 
@@ -131,13 +148,4 @@ botoesFiltro[3].addEventListener("click", () => {
     renderizarTabela(dadosGlobais);
 });
 
-//faz a busca por nome
-inputBusca.addEventListener("input", () => {
-    const valor = inputBusca.value.toLowerCase();
 
-    const filtrados = dadosGlobais.filter(item =>
-        item.nome.toLowerCase().includes(valor)
-    );
-
-    renderizarTabela(filtrados);
-});
