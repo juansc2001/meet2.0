@@ -84,7 +84,7 @@ DATABASES = {
         'USER': os.environ.get('PGUSER'),
         'PASSWORD': os.environ.get('PGPASSWORD'),
         'HOST': os.environ.get('PGHOST'),
-        'PORT': os.environ.get('PORT'),
+        'PORT': os.environ.get('DB_PORT'),
         'OPTIONS': {
             'sslmode': 'require',
         },
