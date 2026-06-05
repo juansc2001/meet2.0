@@ -84,13 +84,12 @@ DATABASES = {
         'USER': os.environ.get('PGUSER'),
         'PASSWORD': os.environ.get('PGPASSWORD'),
         'HOST': os.environ.get('PGHOST'),
-        'PORT': os.environ.get('DB_PORT'),
+        'PORT': 5432,
         'OPTIONS': {
             'sslmode': 'require',
         },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
