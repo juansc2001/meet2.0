@@ -1,8 +1,11 @@
 asgiref==3.10.0
 Django==5.2.7
+dotenv==0.9.9
 gunicorn==25.3.0
+load-dotenv==0.1.0
 packaging==26.1
 psycopg2-binary==2.9.12
+python-dotenv==1.2.2
 sqlparse==0.5.3
 tzdata==2025.2
 whitenoise==6.12.0
