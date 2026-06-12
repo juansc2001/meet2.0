@@ -293,4 +293,44 @@ def API_exibir_horarios(request):
         }
         lista_agendados.append(agenda)
     return JsonResponse(lista_agendados, safe=False)
-    
+
+
+def desmarcar(request):
+    if request.method == 'GET':
+        return render(request, 'desmarcar.html')
+
+    if request.method == 'POST':
+        #coleta os dados do formulario
+        nome = request.POST.get('nome_cliente')
+        hora_data = request.POST.get('hora_marcada')
+        hora_data_formatados = datetime.datetime.strptime(hora_data, "%Y-%m-%dT%H:%M")
+
+
+
+        #pesquisa o cliente que o usuario esta preocurando
+        agendamentos_feitos = horarios_agendados.objects.filter(
+            cliente=nome,
+            horario_agendado_inicial =hora_data_formatados
+        )
+        if not agendamentos_feitos.exists():
+            print('nao foi encontrado este horario marcado')
+            messages.add_message(
+                request,
+                messages.INFO,
+                'nao foi encontrado este horario marcado'
+            )
+            
+        
+        #deleta o agendamento que foi encontrado
+        else:
+            for agendamento in agendamentos_feitos:
+                agendamento.delete()   
+                messages.add_message(
+                    request,
+                    messages.INFO,
+                    f'deletado com sucesso cliente {agendamento.cliente}'
+                )
+            
+        
+        
+        return render(request, 'desmarcar.html')
