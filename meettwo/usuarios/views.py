@@ -15,7 +15,7 @@ def log(request):
         messages.add_message(
             request,
             messages.INFO,
-            'login = admin  senha = admin'
+            'login = admin  password = admin'
         )
         return render(request, 'login.html')
     elif(request.method == 'POST'):
