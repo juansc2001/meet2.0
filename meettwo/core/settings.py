@@ -79,7 +79,7 @@ DATABASES = {
 }
 
 #aqui eu estou colocando em produção entao eu reescrevo o database
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -93,6 +93,7 @@ DATABASES = {
         },
     }
 }
+'''
 
 '''
 #tentando outra alternativa
