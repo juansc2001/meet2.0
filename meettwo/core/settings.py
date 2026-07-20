@@ -95,7 +95,7 @@ DATABASES = {
 }
 '''
 
-'''
+
 #tentando outra alternativa
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 DATABASES = {
@@ -109,7 +109,7 @@ DATABASES = {
         'OPTIONS': dict(parse_qsl(tmpPostgres.query)),
     }
 }
-'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

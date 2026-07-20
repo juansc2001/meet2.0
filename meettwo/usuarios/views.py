@@ -12,11 +12,6 @@ from django.contrib.messages import constants
 def log(request):
     if(request.method == 'GET'):
         print(request.user)
-        messages.add_message(
-            request,
-            messages.INFO,
-            'login = admin  password = admin'
-        )
         return render(request, 'login.html')
     elif(request.method == 'POST'):
 
