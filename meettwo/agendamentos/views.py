@@ -276,6 +276,13 @@ def dia_disponivel(request):
 
 @login_required(login_url='/login/')
 def exibir_horarios(request):
+
+    #deleta os horarios agendados que tem mais de 30 dias
+    hoje = timezone.now()
+    mes_passado = hoje - datetime.timedelta(days=30)
+    horarios_mes_passado = horarios_agendados.objects.filter(horario_agendado_inicial__lt= mes_passado)
+    horarios_mes_passado.delete()
+
     return render(request, 'exibir_horarios.html')
 
 
@@ -295,6 +302,8 @@ def API_exibir_horarios(request):
     return JsonResponse(lista_agendados, safe=False)
 
 
+
+@login_required(login_url='/login/')
 def desmarcar(request):
     if request.method == 'GET':
         return render(request, 'desmarcar.html')
