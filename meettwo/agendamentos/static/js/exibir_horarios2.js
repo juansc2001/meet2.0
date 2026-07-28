@@ -9,7 +9,7 @@ let dadosGlobais = [];
 const servicosMap = {
     "1": "Consultoria",
     "2": "Mentoria",
-    "3": "Reunião Técnica"
+    "3": "Reunião Técnica",
 };
 
 // =====================
@@ -74,9 +74,12 @@ function renderizarTabela(dados) {
                     minute: "2-digit"
                 }
             );
-
+        
+        /*
         const nomeServico =
             servicosMap[item.servico] || "Desconhecido";
+        */
+        const nomeServico = item.servico
 
         const tr = document.createElement("tr");
 

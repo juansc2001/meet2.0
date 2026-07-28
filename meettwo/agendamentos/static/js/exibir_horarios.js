@@ -1,5 +1,5 @@
 window.alert('javascript desatualizado')
-
+/*script desatualizado */
 const tabela = document.getElementById("tabela")
 const inputBusca = document.getElementById("busca-nome");
 

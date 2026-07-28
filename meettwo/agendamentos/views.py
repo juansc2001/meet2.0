@@ -71,6 +71,8 @@ def API_menssagem_agendar(request):
         'status': 'erro',
         'mensagem': 'Preencha todos os campos'
     })
+
+
 @login_required(login_url='/login/')
 def agendar(request):
     if request.method == "GET":
@@ -279,7 +281,7 @@ def exibir_horarios(request):
 
     #deleta os horarios agendados que tem mais de 30 dias
     hoje = timezone.now()
-    mes_passado = hoje - datetime.timedelta(days=30)
+    mes_passado = hoje - datetime.timedelta(days= 7)
     horarios_mes_passado = horarios_agendados.objects.filter(horario_agendado_inicial__lt= mes_passado)
     horarios_mes_passado.delete()
 
@@ -290,12 +292,21 @@ def exibir_horarios(request):
 def API_exibir_horarios(request):
     #API que manda um json dos dados agendados pro frontend
     dados = horarios_agendados.objects.all()
+    
     lista_agendados = []
+
+
     for dado in dados:
+
+        #ainda esta dando problema
+        servico = tipos_de_servicos.objects.get( id =  dado.servico)
+        for serv in servico:
+            print(serv.servico_nome)
+
         agenda = {
             'nome': dado.cliente,
             'horario': dado.horario_agendado_inicial,
-            'servico': dado.servico,
+            'servico': 'error',
             #seria interesante ter o numero de telefone do usuario
         }
         lista_agendados.append(agenda)
