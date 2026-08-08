@@ -300,13 +300,13 @@ def API_exibir_horarios(request):
 
         #ainda esta dando problema
         servico = tipos_de_servicos.objects.get( id =  dado.servico)
-        for serv in servico:
-            print(serv.servico_nome)
-
+        
+        nameservico = servico.servico_nome
+        
         agenda = {
             'nome': dado.cliente,
             'horario': dado.horario_agendado_inicial,
-            'servico': 'error',
+            'servico': nameservico ,
             #seria interesante ter o numero de telefone do usuario
         }
         lista_agendados.append(agenda)
